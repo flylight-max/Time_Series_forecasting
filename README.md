@@ -10,7 +10,7 @@ Therefore we have to first predict transactions per store and use this informati
 Although we transactions are very heterogeneous between stores (with the exception of the christmas period), we found a very strong weekly rhythm.  
 However, this rhythm can be disturbed either through its amplitude of oscillations or even a phase shift by holidays or other events. These disturbances are not homegeneous and therefore affects more or less each store transactions.
 Using a recursive method, I first predicted transactions. 
-![figure 1](RMSLE_per_date_all_stores.png)
+![figure 1](RMSLE_per_date_all_stores.png "Model performance")
 The graph above shows the performance of the model to predict transactions. The root mean squared logarithmic error is a good metric for this kind of dataset as it provides more importance for the % of difference and penalises underestimations which is what we want to avoid here as we do not want empty shelves in our stores.
 The next step I am currently working on is to predict sales.  
 Soon will be posted here the performance for sales.
