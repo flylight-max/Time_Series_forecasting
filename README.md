@@ -11,6 +11,11 @@ Although we transactions are very heterogeneous between stores (with the excepti
 However, this rhythm can be disturbed either through its amplitude of oscillations or even a phase shift by holidays or other events. These disturbances are not homegeneous and therefore affects more or less each store transactions.
 Using a recursive method, I first predicted transactions. 
 ![figure 1](RMSLE_per_date_all_stores.png "Model performance")
-The graph above shows the performance of the model to predict transactions. The root mean squared logarithmic error is a good metric for this kind of dataset as it provides more importance for the % of difference and penalises underestimations which is what we want to avoid here as we do not want empty shelves in our stores.
-The next step I am currently working on is to predict sales.  
-Soon will be posted here the performance for sales.
+The graph above shows the performance of the model to predict transactions. The root mean squared logarithmic error is a good metric for this kind of dataset as it provides more importance for the % of difference and penalises underestimations which is what we want to avoid here as we do not want empty shelves in our stores.  
+
+## **Performance for sales, 2025.04.27**  
+I have finally finished to build the predictive model for sales.
+![figure AUTO](automotive_perf.png "Comparison sales for item AUTOMOTIVE")
+![figure Baby care](babycare_perf.png "Comparison sales for item BABY CARE")
+![figure Grocery I](groceryI_perf.png "Comparison sales for item GROCERY I")  
+You can see that the model performs very well on both items that do not sale much (Baby care and automotive) and items that do sale a lot.
