@@ -26,6 +26,13 @@ def transactions_cat():
             col_encod = my_labelEncoder()
             col_encod.fit(data,col)
             data[col] = col_encod.transform(data,col)
+    data["day_month"] = data["date"].dt.day
+    data["payday"] = np.where(data["day_month"] == 15,1,0)
+    data.loc[data["day_month"] == 31,"payday"] = 1
+    data["month"] = data["date"].dt.month
+    data.loc[(data["month"].isin([4,6,9,11]))&(data["day_month"] == 30),"payday"] = 1
+    data.loc[(data["month"] == 2)&(data["day_month"] >= 28),"payday"] = 1
+    data.drop(["day_month","month"], axis=1, inplace=True)
     return data
 
 
@@ -39,7 +46,6 @@ def family_df(family_name,df,month):
     """
     family_df = df[df["family"] == family_name].copy()
     family_df["month"] = family_df["date"].dt.month
-    #family_df["weekday"] = family_df.dt.weekday
     family_df.drop(["family","id"], axis=1, inplace=True)
     family_df_month = family_df[family_df["month"] == month].copy()
     family_df.drop("month", axis=1, inplace=True)
